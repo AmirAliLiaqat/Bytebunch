@@ -1,0 +1,41 @@
+@media only screen and (max-width: 990px) {
+    header .navbar .collapse ul li{
+        text-align: left;
+        border-bottom: 1px solid #777;
+        padding: 0;
+    }
+    header .navbar .collapse ul li a{
+        display: inline-block;
+        width: 80%;
+    }
+    .navbar .container .collapse ul li i{
+        margin: 0 10px;
+        font-size: 16px;
+    }
+    .col-md-4{
+        margin-top: 20px;
+    }
+    .row .login-col{
+        width: 100%;
+    }
+    .post-header .title {
+        width: 80%;
+        float: left;
+        padding: 0 4% 0;
+    }
+    .abc{
+        margin: 20px 0;
+    }
+    .map{
+        height: 300px;
+    }
+    .section-row {
+        position: relative;
+        padding-top: 20px;
+        top: 0;
+        right: 0;
+    }
+    footer h3{
+        margin-top: 10px;
+    }
+  }
