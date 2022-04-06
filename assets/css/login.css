@@ -5,7 +5,7 @@ h2 {
 }
 section p {
     line-height: 1.4em;
-    margin: 0 0 20px 0;
+    /* margin: 0 0 20px 0; */
 }
 section label {
     font-weight: normal;
