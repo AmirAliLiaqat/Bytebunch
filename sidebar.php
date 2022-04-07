@@ -7,7 +7,9 @@
 ?>
 
     <aside class="sidebar">
-        <div class="widget">
-            <?php dynamic_sidebar('main-sidebar'); ?>
-        </div><!--widget-->
+        <?php if ( true == get_theme_mod( 'toggle_home_sidebar', 'on' ) ) : ?>
+            <div class="widget">
+                <?php dynamic_sidebar('main-sidebar'); ?>
+            </div><!--widget-->
+        <?php endif; ?>
     </aside>
