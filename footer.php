@@ -10,7 +10,7 @@
     <footer>
         <div class="container">
             <div class="row pt-5">
-                <div class="col-md-3">
+                <div class="col-md-3 footer-posts">
                     <?php dynamic_sidebar('footer-1'); ?>
                 </div><!--col-md-3-->
                 <div class="col-md-3">
