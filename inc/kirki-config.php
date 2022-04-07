@@ -149,16 +149,36 @@ Kirki::add_field( 'bytebunch_options', [
 ] );
 
 Kirki::add_field( 'bytebunch_options', [
-    'type'    => 'switch',
-    'settings'    => 'toggle_home_post',
-    'label'       => esc_html__( 'Switch Field', 'kirki' ),
-    'description' => esc_html__( 'Homepage Posts', 'kirki' ),
-    'section'     => 'homepage_settings',
-    'default'     => '1',
-    'priority'    => 10,
-    'choices'     => [
-        'on'  => esc_html__( 'Enable', 'kirki' ),
-        'off' => esc_html__( 'Disable', 'kirki' ),
+    'type'            => 'background',
+    'settings'      => 'button_background_setting',
+    'label'           => esc_html__( 'Button Background Control', 'kirki' ),
+    'description' => esc_html__( 'Change the all site buttons background color', 'kirki' ),
+    'section'       => 'homepage_settings',
+    'default'       => [
+        'background-color'           => '#e55a21',
+    ],
+    'transport' => 'auto',
+    'output'      => [
+        [
+            'element' => '.wp-block-group__inner-container button, .orange-btn, input[type="submit"]',
+        ],
+    ],
+] );
+
+Kirki::add_field( 'bytebunch_options', [
+    'type'            => 'background',
+    'settings'      => 'button_hover_background_setting',
+    'label'           => esc_html__( 'Button Hover Color Control', 'kirki' ),
+    'description' => esc_html__( 'Change the all site buttons hover color', 'kirki' ),
+    'section'       => 'homepage_settings',
+    'default'       => [
+        'background-color'           => '#000',
+    ],
+    'transport' => 'auto',
+    'output'      => [
+        [
+            'element' => '.wp-block-group__inner-container button:hover, .orange-btn:hover, input[type="submit"]:hover',
+        ],
     ],
 ] );
 
@@ -174,6 +194,21 @@ Kirki::add_field( 'bytebunch_options', [
         'on'  => esc_html__( 'Enable', 'kirki' ),
         'off' => esc_html__( 'Disable', 'kirki' ),
     ],
+] );
+
+Kirki::add_field( 'bytebunch_options', [
+        'type'        => 'radio-image',
+        'setting'     => 'homepage_layout',
+        'label'       => __( 'Site Layout', 'superminimal' ),
+        'description' => __( 'Change The Homepage Layout', 'superminimal' ),
+        'section'     => 'homepage_settings',
+        'default'     => 'sidebar-right',
+        'priority'    => 10,
+        'choices'     => array(
+          'sidebar-left' => trailingslashit( get_template_directory_uri() ) . '/images/first-layout.png',
+          'fullwidth' => trailingslashit( get_template_directory_uri() ) . '/images/second-layout.png',
+          'sidebar-right' => trailingslashit( get_template_directory_uri() ) . '/images/third-layout.png',
+        ),
 ] );
 
 Kirki::add_field( 'bytebunch_options', [
@@ -212,4 +247,5 @@ Kirki::add_field( 'bytebunch_options', [
     'default'  => esc_html__( '© Copyright 2021. Theme by ByteBunch.', 'kirki' ),
     'priority' => 10,
 ] );
+
 ?>
