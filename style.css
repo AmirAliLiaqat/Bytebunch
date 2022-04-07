@@ -187,7 +187,7 @@ input[type="submit"] {
     color: #777777;
     text-decoration: none;
     display: inline-block;
-    font-size: 13px;
+    font-size: 14px !important;
     margin: 0 7px 7px 10px;
     padding: 7px 14px;
     text-transform: uppercase;
@@ -196,10 +196,35 @@ input[type="submit"] {
     color: #fff;
     background-color: #e55a21;
 }
+.sidebar .tagcloud a:first-child{
+    display: none;
+}
 
 /******************** Footer css ********************/
 footer, header{
     background-color: #101010;
+}
+footer h3{
+    color: #fff;
+    font-size: 1em;
+    font-weight: 700;
+    line-height: 22px;
+    margin: 0 0 10px 0;
+    text-transform: uppercase;
+}
+.footer-posts li {
+    border-bottom: 1px solid #ccc;
+}
+.footer-posts li a {
+    padding: 5px 0;
+    color: #555555;
+}
+.footer-posts li a:hover {
+    color: #555555;
+    text-decoration: underline !important;
+}
+footer .tags a:first-child, footer .tags a:nth-of-type(2){
+    display: none;
 }
 footer .tags a{
     background-color: #2a2a2a;
@@ -216,22 +241,6 @@ footer .tags a{
 footer .tags a:hover{
     background-color: #e55a21;
     color: #fff;
-}
-footer h3{
-    color: #fff;
-    font-size: 1em;
-    font-weight: 700;
-    line-height: 22px;
-    margin: 0 0 10px 0;
-    text-transform: uppercase;
-}
-footer .post ul{
-    padding-left: 0;
-}
-footer .post ul li{
-    border-bottom: 1px solid #fff;
-    list-style: none;
-    padding: 10px 0;
 }
 footer p{
     color: #999;
