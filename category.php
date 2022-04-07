@@ -16,7 +16,13 @@ get_header();
                         <div class="row">
                             <div class="col-md-8">
                             <div class="mb-2 p-3" style="background: #fff;">
-                                <h3>Archives for the <?php the_tags(); ?> Category</h3>
+                                <h2>
+                                    Archives for the 
+                                    ‘<?php 
+                                        echo $category = single_term_title("", true);
+                                        $catid = get_cat_ID( $category ); 
+                                    ?>’ Category
+                                </h2>
                             </div><!--my-2-->
                                 <div class="content">
                                     <?php
