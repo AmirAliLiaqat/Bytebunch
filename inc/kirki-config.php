@@ -178,9 +178,22 @@ Kirki::add_field( 'bytebunch_options', [
 
 Kirki::add_field( 'bytebunch_options', [
     'type'    => 'switch',
+    'settings'    => 'toggle_footer_menu',
+    'label'       => esc_html__( 'Switch Field', 'kirki' ),
+    'description' => esc_html__( 'Footer Menu', 'kirki' ),
+    'section'     => 'footer_settings',
+    'default'     => '1',
+    'priority'    => 10,
+    'choices'     => [
+        'on'  => esc_html__( 'Enable', 'kirki' ),
+        'off' => esc_html__( 'Disable', 'kirki' ),
+    ],
+] );
+
+Kirki::add_field( 'bytebunch_options', [
+    'type'    => 'switch',
     'settings'    => 'toggle_footer_copyright',
     'label'       => esc_html__( 'Switch Field', 'kirki' ),
-    // 'description' => esc_html__( 'Homepage Sidebar', 'kirki' ),
     'description' => esc_html__( 'Footer Copyright', 'kirki' ),
     'section'     => 'footer_settings',
     'default'     => '1',

@@ -27,14 +27,16 @@
         
         <div class="copyright_text">
             <div class="container">
-                <div class="footer_menu">
-                    <?php 
-                        wp_nav_menu( array (
-                            'theme_location' => 'secondary',
-                            'container' => ''
-                        ) ); 
-                    ?>
-                </div><!--footer_menu-->
+                <?php if ( true == get_theme_mod( 'toggle_footer_menu', 'on' ) ) : ?>
+                    <div class="footer_menu">
+                        <?php 
+                            wp_nav_menu( array (
+                                'theme_location' => 'secondary',
+                                'container' => ''
+                            ) ); 
+                        ?>
+                    </div><!--footer_menu-->
+                <?php endif; ?>
                 <?php if ( true == get_theme_mod( 'toggle_footer_copyright', 'on' ) ) : ?>
                     <p style="font-size: 1rem; margin-top: 10px;">	
                         <?php echo get_theme_mod( 'footer_copyright_text', '© Copyright 2021. Theme by ByteBunch' ) ?>
