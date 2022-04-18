@@ -15,6 +15,11 @@ Text Domain: bytebunch
 This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
 */
+/******************** Typography css ********************/
+#block-87, #block-91, #block-94{
+    display: none;
+}
+
 /******************** Header css ********************/
 body{
     background-color: #f2f2f2 !important;
