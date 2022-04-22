@@ -16,7 +16,9 @@ get_header();
         <div class="container my-4">
             <div class="row mt-4">
                 <div class="col-md-8 login-col">
-                    <div class="my-2 p-3" style="background: #fff;"><h3><?php the_title(); ?></h3></div>
+                    <div class="my-2 p-3" style="background: #fff;">
+                        <h3><?php the_title(); ?></h3>
+                    </div><!--my-2-->
                     <div class="my-4 p-3" style="background: #fff;">
                         <?php 
                             if(the_content() == "") {
@@ -25,7 +27,7 @@ get_header();
                                 the_content(); 
                             }
                         ?>
-                    </div>
+                    </div><!--my-2-->
                 </div><!--col-md-8-->
                 <div class="col-md-4 login-col">
                     <?php get_sidebar(); ?>
