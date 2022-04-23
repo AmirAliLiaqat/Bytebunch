@@ -106,6 +106,16 @@ function bytebunch_widgets_init() {
         'after_title'      =>  '</h2>',
     ) );
  
+    /********************** Widget Area For Forgot Password Template *************************/
+    register_sidebar( array(
+        'name'                =>  __( 'Forgot Password Widget Area', 'bytebunch' ),
+        'id'                     =>  'forgot-widget',
+        'before_widget' =>  '<p id="%1$s" class="widget %2$s">',
+        'after_widget'   =>  '<p>',
+        'before_title'    =>  '<h2 class="widget-title">',
+        'after_title'      =>  '</h2>',
+    ) );
+ 
     /********************** Widget Area For Footer *************************/
     register_sidebar( array(
         'name'                =>  __( 'Footer Widget 1', 'bytebunch' ),
