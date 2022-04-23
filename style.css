@@ -28,6 +28,13 @@ body{
 body a{
     text-decoration: none !important;
 }
+.navbar .container .collapse, .navbar .container .collapse ul{
+    height: 80px;
+}
+.navbar .container .collapse ul{
+    list-style: none;
+    display: flex;
+}
 .navbar .container .collapse ul li{
     border-left: 1px solid #333333;
     padding: 10px;
@@ -39,6 +46,10 @@ body a{
     margin-top: 10px;
     color: gray;
     font-size: 35px;
+}
+.navbar .container .collapse ul li a{
+    color: gray;
+    font-size: 20px;
 }
 .navbar .container .collapse ul li:hover i, .navbar .container .collapse ul li:hover a{
     color: #fff;
