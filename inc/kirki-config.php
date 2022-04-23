@@ -51,10 +51,11 @@ Kirki::add_section( 'footer_settings', array(
     'icon'    => 'dashicons-edit',
 ) );
 
+/**************************** Field For Home Background Control ****************************/
 Kirki::add_field( 'bytebunch_options', [
     'type'            => 'background',
     'settings'      => 'background_setting',
-    'label'           => esc_html__( 'Background Control', 'kirki' ),
+    'label'           => esc_html__( 'Home All Sections Background Control', 'kirki' ),
     'description' => esc_html__( 'Background conrols are pretty complex! (but useful if used properly)', 'kirki' ),
     'section'       => 'header_layout_settings',
     'default'       => [
@@ -68,11 +69,35 @@ Kirki::add_field( 'bytebunch_options', [
     'transport' => 'auto',
     'output'      => [
         [
-            'element' => 'header',
+            'element' => 'header, footer, .copyright_text',
         ],
     ],
 ] );
 
+/**************************** Field For Body Background Control ****************************/
+Kirki::add_field( 'bytebunch_options', [
+    'type'            => 'background',
+    'settings'      => 'body_background_setting',
+    'label'           => esc_html__( 'Body Background Control', 'kirki' ),
+    'description' => esc_html__( 'Background conrols are pretty complex! (but useful if used properly)', 'kirki' ),
+    'section'       => 'header_layout_settings',
+    'default'       => [
+        'background-color'           => '#f2f2f2',
+        'background-image'          => '',
+        'background-repeat'         => 'repeat',
+        'background-position'       => 'center center',
+        'background-size'             => 'cover',
+        'background-attachment' => 'scroll',
+    ],
+    'transport' => 'auto',
+    'output'      => [
+        [
+            'element' => 'body',
+        ],
+    ],
+] );
+
+/**************************** Field For Nav Background Control ****************************/
 Kirki::add_field( 'bytebunch_options', [
     'type'            => 'background',
     'settings'      => 'menu_background_setting',
@@ -90,11 +115,12 @@ Kirki::add_field( 'bytebunch_options', [
     'transport' => 'auto',
     'output'      => [
         [
-            'element' => '.navbar-nav .nav-item',
+            'element' => '.navbar .container .collapse ul li',
         ],
     ],
 ] );
 
+/**************************** Field For Nav Hover Background Control ****************************/
 Kirki::add_field( 'bytebunch_options', [
     'type'            => 'background',
     'settings'      => 'menu_active_background_setting',
@@ -113,6 +139,7 @@ Kirki::add_field( 'bytebunch_options', [
     ],
 ] );
 
+/**************************** Field For Home Typography ****************************/
 Kirki::add_field( 'bytebunch_options', [
     'type'    => 'typography',
     'settings'    => 'heading_settings',
@@ -148,6 +175,7 @@ Kirki::add_field( 'bytebunch_options', [
     ],
 ] );
 
+/**************************** Field For Button Background Control ****************************/
 Kirki::add_field( 'bytebunch_options', [
     'type'            => 'background',
     'settings'      => 'button_background_setting',
@@ -165,6 +193,7 @@ Kirki::add_field( 'bytebunch_options', [
     ],
 ] );
 
+/**************************** Field For Button Hover Background Control ****************************/
 Kirki::add_field( 'bytebunch_options', [
     'type'            => 'background',
     'settings'      => 'button_hover_background_setting',
@@ -182,6 +211,7 @@ Kirki::add_field( 'bytebunch_options', [
     ],
 ] );
 
+/**************************** Field For Toogle Sidebar ****************************/
 Kirki::add_field( 'bytebunch_options', [
     'type'    => 'switch',
     'settings'    => 'toggle_home_sidebar',
@@ -196,6 +226,7 @@ Kirki::add_field( 'bytebunch_options', [
     ],
 ] );
 
+/**************************** Field For Home Page Layout Control ****************************/
 Kirki::add_field( 'bytebunch_options', [
         'type'        => 'radio-image',
         'setting'     => 'homepage_layout',
@@ -211,6 +242,7 @@ Kirki::add_field( 'bytebunch_options', [
         ),
 ] );
 
+/**************************** Field For Footer Menu Show/Hide ****************************/
 Kirki::add_field( 'bytebunch_options', [
     'type'    => 'switch',
     'settings'    => 'toggle_footer_menu',
@@ -225,6 +257,7 @@ Kirki::add_field( 'bytebunch_options', [
     ],
 ] );
 
+/**************************** Field For Footer Copyright Show/Hide ****************************/
 Kirki::add_field( 'bytebunch_options', [
     'type'    => 'switch',
     'settings'    => 'toggle_footer_copyright',
@@ -239,6 +272,7 @@ Kirki::add_field( 'bytebunch_options', [
     ],
 ] );
 
+/**************************** Field For Footer Copyright Text Control ****************************/
 Kirki::add_field( 'bytebunch_options', [
     'type'    => 'text',
     'settings' => 'footer_copyright_text',
