@@ -40,9 +40,20 @@ get_header();
                                             <a href="<?php the_permalink(get_the_ID()); ?>" class="orange-btn">Read More</a>
                                         </div><!--post-content-->
                                         <div class="post-footer">
-                                            <span>
-                                                <img src="https://img.icons8.com/glyph-neue/16/000000/messaging-.png"/>  
-                                                <a href="" class="link"><?php echo get_comments_number(); ?> comment</a>
+                                            <span class="facebook_share">
+                                                <a href="<?php the_permalink(get_the_ID()); ?>"><img src="<?php echo get_template_directory_uri(); ?>/images/facebook_like.png"/></a>
+                                            </span>
+                                            <span class="twitter_share">
+                                                <a href="<?php the_permalink(get_the_ID()); ?>"><img src="<?php echo get_template_directory_uri(); ?>/images/tweet.png"/></a>
+                                            </span>
+                                            <span class="linkedin_share hidden-xs">
+                                                <a href="<?php the_permalink(get_the_ID()); ?>"><img src="<?php echo get_template_directory_uri(); ?>/images/linked_share.png"/></a>
+                                            </span>
+                                            <span class="google_share hidden-xs">
+                                                <a href="<?php the_permalink(get_the_ID()); ?>"><img src="<?php echo get_template_directory_uri(); ?>/images/google-plus-icon.png"/></a>
+                                            </span>
+                                            <span class="post_comments">
+                                                <a href="<?php the_permalink(get_the_ID()); ?>" class="link"><img src="https://img.icons8.com/glyph-neue/16/000000/messaging-.png"/> <?php echo get_comments_number(); ?> comment</a>
                                             </span>
                                         </div><!--post-footer-->
                                     </article>
