@@ -46,6 +46,8 @@ add_action('wp_enqueue_scripts', 'bytebunch_scripts');
 
 /************** Function using for adding sidebar widgets **************/
 function bytebunch_widgets_init() {
+
+    /********************** Widget Area For Sidebar *************************/
     register_sidebar( array(
         'name'                 =>  __( 'Primary Sidebar', 'bytebunch' ),
         'id'                      =>  'main-sidebar',
@@ -56,6 +58,7 @@ function bytebunch_widgets_init() {
         'after_title'       =>  '</h3>',
     ) );
  
+    /********************** Widget Area For Login Template *************************/
     register_sidebar( array(
         'name'                =>  __( 'Login Widget 1', 'bytebunch' ),
         'id'                     =>  'login-1',
@@ -74,6 +77,7 @@ function bytebunch_widgets_init() {
         'after_title'      =>  '</h2>',
     ) );
  
+    /********************** Widget Area For Register Template *************************/
     register_sidebar( array(
         'name'                =>  __( 'Register Page Widget', 'bytebunch' ),
         'id'                     =>  'register-widget',
@@ -83,6 +87,26 @@ function bytebunch_widgets_init() {
         'after_title'      =>  '</h2>',
     ) );
  
+    /********************** Widget Area For Contact Template *************************/
+    register_sidebar( array(
+        'name'                =>  __( 'Contact Widget 1', 'bytebunch' ),
+        'id'                     =>  'contact-1',
+        'before_widget' =>  '<p id="%1$s" class="widget %2$s">',
+        'after_widget'   =>  '<p>',
+        'before_title'    =>  '<h2 class="widget-title">',
+        'after_title'      =>  '</h2>',
+    ) );
+
+    register_sidebar( array(
+        'name'                =>  __( 'Contact Widget 2', 'bytebunch' ),
+        'id'                     =>  'contact-2',
+        'before_widget' =>  '<p id="%1$s" class="widget %2$s">',
+        'after_widget'   =>  '<p>',
+        'before_title'    =>  '<h2 class="widget-title">',
+        'after_title'      =>  '</h2>',
+    ) );
+ 
+    /********************** Widget Area For Footer *************************/
     register_sidebar( array(
         'name'                =>  __( 'Footer Widget 1', 'bytebunch' ),
         'id'                     =>  'footer-1',
