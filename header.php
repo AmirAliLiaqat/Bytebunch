@@ -25,32 +25,12 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-          <ul class="navbar-nav text-center">
-            <li class="nav-item" style="background-color:#e55a21;">
-              <a class="nav-link active" aria-current="page" href="index.html">
-                <img src="https://img.icons8.com/glyph-neue/48/FFFFFF/home.png"/><br>
-                HOME
-                </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="login.html">
-                <img src="https://img.icons8.com/glyph-neue/48/CCCCCC/guest-male.png"/><br>
-                LOG IN
-                </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="register.html">
-                <img src="https://img.icons8.com/glyph-neue/48/CCCCCC/add-user-male.png"/><br>
-                REGISTER
-                </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="contact.html">
-                <img src="https://img.icons8.com/glyph-neue/48/CCCCCC/phone.png"/><br>
-                CONTACT
-                </a>
-            </li>
-          </ul>
+          <?php 
+            wp_nav_menu( array (
+              'theme_location' => 'primary',
+              'container' => ''
+            ) ); 
+          ?>
         </div><!--collapse navbar-collapse-->
       </div><!--container-->
     </nav>
