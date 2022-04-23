@@ -30,6 +30,8 @@ body a{
 }
 .navbar .container .collapse, .navbar .container .collapse ul{
     height: 80px;
+    margin-bottom: 0px !important;
+    padding-left: 0px !important;
 }
 .navbar .container .collapse ul{
     list-style: none;
