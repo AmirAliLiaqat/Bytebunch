@@ -19,8 +19,8 @@ get_header();
                                 <h2>
                                     Tags Archives:
                                     <?php 
-                                        echo $category = single_term_title("", true);
-                                        $catid = get_cat_ID( $category ); 
+                                        echo $tags = single_term_title("", true);
+                                        $tagid = get_cat_ID( $tags ); 
                                     ?>
                                 </h2>
                             </div><!--my-2-->
