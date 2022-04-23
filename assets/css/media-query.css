@@ -18,10 +18,13 @@
     .row .login-col{
         width: 100%;
     }
-    .post-header .title {
+    .post-header .title{
         width: 80%;
         float: left;
         padding: 0 4% 0;
+    }
+    .post-header .title h2{
+        font-size: 1.2em;
     }
     .abc{
         margin: 20px 0;
@@ -29,7 +32,7 @@
     .map{
         height: 300px;
     }
-    .section-row {
+    .section-row{
         position: relative;
         padding-top: 20px;
         top: 0;
