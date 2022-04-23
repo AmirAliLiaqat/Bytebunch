@@ -75,6 +75,15 @@ function bytebunch_widgets_init() {
     ) );
  
     register_sidebar( array(
+        'name'                =>  __( 'Register Page Widget', 'bytebunch' ),
+        'id'                     =>  'register-widget',
+        'before_widget' =>  '<p id="%1$s" class="widget %2$s">',
+        'after_widget'   =>  '<p>',
+        'before_title'    =>  '<h2 class="widget-title">',
+        'after_title'      =>  '</h2>',
+    ) );
+ 
+    register_sidebar( array(
         'name'                =>  __( 'Footer Widget 1', 'bytebunch' ),
         'id'                     =>  'footer-1',
         'before_widget' =>  '<p id="%1$s" class="widget %2$s">',
