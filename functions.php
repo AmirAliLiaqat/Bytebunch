@@ -38,7 +38,7 @@ function bytebunch_scripts() {
     wp_enqueue_style('style-media', get_template_directory_uri() . '/assets/css/media-query.css');
     wp_enqueue_style('bootstrap', get_template_directory_uri() . '/assets/bootstrap/css/bootstrap.min.css');
 
-    wp_enqueue_script('script', get_template_directory_uri() . '/assets/js/main.css');
+    wp_enqueue_script('script', get_template_directory_uri() . '/assets/js/main.js');
     wp_enqueue_script('bootstrap', get_template_directory_uri() . '/assets/bootstrap/js/bootstrap.min.js', ['jquery']);
 
 }
@@ -155,10 +155,7 @@ function bytebunch_widgets_init() {
 }
 add_action('widgets_init', 'bytebunch_widgets_init');
 
-// Kirki Embedded.
-require get_template_directory() . '/inc/kirki-config.php';
-
 // Adding Customizer File.
-// require get_template_directory() . '/inc/customizer.php';
+require get_template_directory() . '/inc/customizer.php';
 
 ?>
