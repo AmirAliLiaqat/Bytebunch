@@ -13,10 +13,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <?php wp_head(); ?>
 </head>
-<body>
+<body class="site-body">
 
   <!-------------------- Header Start -------------------->
-  <header>
+  <header class="site-header">
     <nav class="navbar navbar-expand-lg navbar-dark" style="padding: 0;">
       <div class="container">
         <?php the_custom_logo(); ?>
