@@ -7,7 +7,7 @@
 ?>
 
     <!-------------------- Footer Start -------------------->
-    <footer>
+    <footer class="site-footer">
         <div class="container">
             <div class="row pt-5">
                 <div class="col-md-3 footer-posts">
