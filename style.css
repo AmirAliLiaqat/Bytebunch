@@ -16,8 +16,17 @@ This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
 */
 /******************** Typography css ********************/
-#block-87, #block-91, #block-94, #block-99, #block-100{
+#block-12, #block-13, #block-15, #block-16, #block-17{
     display: none;
+}
+.form-submit .submit{
+    max-width: 30%;
+}
+.comment-form-comment label {
+    margin-bottom: 10px !important;
+}
+#remember_me{
+    width: 5% !important;
 }
 
 /******************** Header css ********************/
