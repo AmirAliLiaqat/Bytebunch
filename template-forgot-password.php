@@ -1,6 +1,6 @@
 <?php
 /**
- * Page File.
+ * Template Name: Forgot Password
  *
  * @package ByteBunch
 */
