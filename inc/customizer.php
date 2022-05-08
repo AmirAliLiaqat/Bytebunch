@@ -16,21 +16,21 @@ function bytebunch_customizer_register( $wp_customize ) {
         'title'			=> __( 'Header Background', 'bytebunch' ),
         'description'	=> __( 'Set background color and/or background image for the header', 'bytebunch' ),
         'panel'  => 'bytebunch_settings',
-        'priority'		=> 9,
+        'priority'		=> 10,
 	) );
 
 	$wp_customize->add_section('bytebunch_body', array(
         'title'			=> __( 'Body Background', 'bytebunch' ),
         'description'	=> __( 'Set background color and/or background image for the body', 'bytebunch' ),
         'panel'  => 'bytebunch_settings',
-        'priority'		=> 9,
+        'priority'		=> 10,
 	) );
 
 	$wp_customize->add_section('bytebunch_footer', array(
         'title'			=> __( 'Footer Background', 'bytebunch' ),
         'description'	=> __( 'Set background color and/or background image for the footer', 'bytebunch' ),
         'panel'  => 'bytebunch_settings',
-        'priority'		=> 9,
+        'priority'		=> 10,
 	) );
 
     /************************* Header Background *************************/
@@ -47,6 +47,18 @@ function bytebunch_customizer_register( $wp_customize ) {
         'description'	=> __( 'Select the background color for header.', 'bytebunch' ),
     ) ) );
 
+	$wp_customize->add_setting('header_background_image_setting', array(
+        'default' => '',
+        'transport' => 'postMessage',
+    ));
+
+	$wp_customize->add_control(new WP_Customize_Image_Control( $wp_customize, 'header_background_image', array(
+		'settings'		=> 'header_background_image_setting',
+		'section'		=> 'bytebunch_header',
+		'label'			=> __( 'Header Background Image', 'bytebunch' ),
+		'description'	=> __( 'Select the background image for header.', 'bytebunch' ),
+	) ) );
+
     /************************* Body Background *************************/
 	$wp_customize->add_setting('body_background_color_setting', array(
         'sanitize_callback'	=> 'sk_sanitize_hex_color',
@@ -61,6 +73,18 @@ function bytebunch_customizer_register( $wp_customize ) {
         'description'	=> __( 'Select the background color for body.', 'bytebunch' ),
     ) ) );
 
+	$wp_customize->add_setting('body_background_image_setting', array(
+        'default' => '',
+        'transport' => 'postMessage',
+    ));
+	
+	$wp_customize->add_control(new WP_Customize_Image_Control( $wp_customize, 'body_background_image', array(
+		'settings'		=> 'body_background_image_setting',
+		'section'		=> 'bytebunch_body',
+		'label'			=> __( 'Body Background Image', 'bytebunch' ),
+		'description'	=> __( 'Select the background image for body.', 'bytebunch' ),
+	) ) );
+
     /************************* Footer Background *************************/
 	$wp_customize->add_setting('footer_background_color_setting', array(
         'sanitize_callback'	=> 'sk_sanitize_hex_color',
@@ -74,6 +98,18 @@ function bytebunch_customizer_register( $wp_customize ) {
         'label'			=> __( 'Footer Background Color', 'bytebunch' ),
         'description'	=> __( 'Select the background color for footer.', 'bytebunch' ),
     ) ) );
+
+	$wp_customize->add_setting('footer_background_image_setting', array(
+        'default' => '',
+        'transport' => 'postMessage',
+    ));
+	
+	$wp_customize->add_control(new WP_Customize_Image_Control( $wp_customize, 'footer_background_image', array(
+		'settings'		=> 'footer_background_image_setting',
+		'section'		=> 'bytebunch_footer',
+		'label'			=> __( 'Footer Background Image', 'bytebunch' ),
+		'description'	=> __( 'Select the background image for footer.', 'bytebunch' ),
+	) ) );
 }
 add_action( 'customize_register', 'bytebunch_customizer_register' );
 
