@@ -31,7 +31,7 @@ Use it to make something cool, have fun, and share what you've learned with othe
 
 /******************** Header css ********************/
 body{
-    background-color: #f2f2f2 ;
+    background-color: #f2f2f2 !important;
     color: #545454;
 }
 body a{
