@@ -25,7 +25,7 @@
     // Body Background Image - Image Control
 	wp.customize( 'body_background_image_setting', function( value ) {
 		value.bind( function( to ) {
-			$( '.site-header' ).css( 'background-image', 'url( ' + to + ')' );
+			$( '.site-body' ).css( 'background-image', 'url( ' + to + ')' );
 		} );
 	});
 
@@ -39,7 +39,7 @@
     // Footer Background Image - Image Control
 	wp.customize( 'footer_background_image_setting', function( value ) {
 		value.bind( function( to ) {
-			$( '.site-header' ).css( 'background-image', 'url( ' + to + ')' );
+			$( '.site-footer' ).css( 'background-image', 'url( ' + to + ')' );
 		} );
 	});
 
