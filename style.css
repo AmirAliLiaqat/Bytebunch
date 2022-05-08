@@ -301,19 +301,6 @@ footer input{
     width: 100%;
     box-sizing: content-box;
 }
-footer button{
-    background-color: #e55a21;
-    width: 100%;
-    color: #fff;
-    cursor: pointer;
-    font-weight: 700;
-    padding: 8px 32px;
-    text-transform: uppercase;
-    border: none;
-}
-footer button:hover{
-    background-color: #1d1d1d;
-}
 footer .copyright_text {
     background-color: #000;
     padding: 15px 0;
@@ -334,5 +321,5 @@ footer .copyright_text a {
     text-decoration: none;
 }   
 footer .copyright_text a:hover {
-    text-decoration: underline;
+    text-decoration: underline !important;
 }  
