@@ -29,6 +29,20 @@
 		} );
 	});
 
+	// Buttons Background Color - Color Control
+	wp.customize( 'button_background_color_setting', function( value ) {
+		value.bind( function( to ) {
+			$( '.orange-btn ' ).css( 'background', to );
+		} );
+	});
+
+	// Widgets Background Color - Color Control
+	wp.customize( 'widgets_background_color_setting', function( value ) {
+		value.bind( function( to ) {
+			$( '.widget_block ' ).css( 'background', to );
+		} );
+	});
+
 	// Footer Background Color - Color Control
 	wp.customize( 'footer_background_color_setting', function( value ) {
 		value.bind( function( to ) {
