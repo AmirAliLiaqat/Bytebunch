@@ -35,7 +35,7 @@ function bytebunch_customizer_register( $wp_customize ) {
 
     /************************* Header Background *************************/
 	$wp_customize->add_setting('header_background_color_setting', array(
-        'sanitize_callback'	=> 'sk_sanitize_hex_color',
+        'sanitize_callback'	=> 'bytebunch_sanitize_hex_color',
         'default' => '#000',
         'transport' => 'postMessage',
     ));
@@ -61,7 +61,7 @@ function bytebunch_customizer_register( $wp_customize ) {
 
     /************************* Body Background *************************/
 	$wp_customize->add_setting('body_background_color_setting', array(
-        'sanitize_callback'	=> 'sk_sanitize_hex_color',
+        'sanitize_callback'	=> 'bytebunch_sanitize_hex_color',
         'default' => '#f2f2f2',
         'transport'	=> 'postMessage',
     ));
@@ -85,9 +85,37 @@ function bytebunch_customizer_register( $wp_customize ) {
 		'description'	=> __( 'Select the background image for body.', 'bytebunch' ),
 	) ) );
 
+	/************************* Widgets Background *************************/
+	$wp_customize->add_setting('widgets_background_color_setting', array(
+        'sanitize_callback'	=> 'bytebunch_sanitize_hex_color',
+        'default' => '#fff',
+        'transport'	=> 'postMessage',
+    ));
+
+	$wp_customize->add_control (new WP_Customize_Color_Control( $wp_customize, 'widgets_background_color', array(
+        'settings'		=> 'widgets_background_color_setting',
+        'section'		=> 'bytebunch_body',
+        'label'			=> __( 'Widgets Background Color', 'bytebunch' ),
+        'description'	=> __( 'Select the background color for widgets.', 'bytebunch' ),
+    ) ) );
+
+	/************************* Buttons Background *************************/
+	$wp_customize->add_setting('button_background_color_setting', array(
+        'sanitize_callback'	=> 'bytebunch_sanitize_hex_color',
+        'default' => '#e55a21',
+        'transport'	=> 'postMessage',
+    ));
+
+	$wp_customize->add_control (new WP_Customize_Color_Control( $wp_customize, 'button_background_color', array(
+        'settings'		=> 'button_background_color_setting',
+        'section'		=> 'bytebunch_body',
+        'label'			=> __( 'Buttons Background Color', 'bytebunch' ),
+        'description'	=> __( 'Select the background color for buttons.', 'bytebunch' ),
+    ) ) );
+
     /************************* Footer Background *************************/
 	$wp_customize->add_setting('footer_background_color_setting', array(
-        'sanitize_callback'	=> 'sk_sanitize_hex_color',
+        'sanitize_callback'	=> 'bytebunch_sanitize_hex_color',
         'default' => '#101010',
         'transport'	=> 'postMessage',
     ));
@@ -110,6 +138,19 @@ function bytebunch_customizer_register( $wp_customize ) {
 		'label'			=> __( 'Footer Background Image', 'bytebunch' ),
 		'description'	=> __( 'Select the background image for footer.', 'bytebunch' ),
 	) ) );
+
+	$wp_customize->add_setting( 'footer_copyright_text', array(
+		'capability' => 'edit_theme_options',
+		'default' => 'Lorem Ipsum',
+		'sanitize_callback' => 'sanitize_text_field',
+	) );
+	  
+	$wp_customize->add_control( 'footer_copyright_text', array(
+		'type' => 'text',
+		'section' => 'bytebunch_footer', // Add a default or your own section
+		'label' => __( 'Footer Copyright Text' ),
+		'description' => __( 'This is a text box for the footer copyright section.' ),
+	) );
 }
 add_action( 'customize_register', 'bytebunch_customizer_register' );
 
@@ -138,6 +179,18 @@ function bytebunch_customizer_css() {
 			<?php } ?>
 			<?php if ( get_theme_mod( 'body_background_image_setting' ) != '' ) { ?>
 				background-image: url(<?php echo get_theme_mod( 'body_background_image_setting' ); ?>);
+			<?php } ?>
+		}
+
+		.orange-btn  {
+			<?php if ( get_theme_mod( 'button_background_color_setting' ) ) { ?>
+				background: <?php echo get_theme_mod( 'button_background_color_setting' ); ?>;
+			<?php } ?>
+		}
+
+		.widget_block  {
+			<?php if ( get_theme_mod( 'widgets_background_color_setting' ) ) { ?>
+				background-color: <?php echo get_theme_mod( 'widgets_background_color_setting' ); ?>;
 			<?php } ?>
 		}
 
