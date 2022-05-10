@@ -18,10 +18,9 @@ get_header();
                             <div class="mb-2 p-3" style="background: #fff;">
                                 <h4>
                                     Search Results for
-                                    ‘<?php 
+                                    ‘‘<?php 
                                         echo $search = get_the_title("", true);
-                                        $seaid = get_cat_ID( $search ); 
-                                    ?>’ 
+                                    ?>’’ 
                                 </h4>
                             </div><!--my-2-->
                                 <div class="content">

@@ -20,7 +20,6 @@ get_header();
                                     Tags Archives:
                                     <?php 
                                         echo $tags = single_term_title("", true);
-                                        $tagid = get_cat_ID( $tags ); 
                                     ?>
                                 </h2>
                             </div><!--my-2-->

@@ -20,7 +20,6 @@ get_header();
                                     Archives for the 
                                     ‘<?php 
                                         echo $category = single_term_title("", true);
-                                        $catid = get_cat_ID( $category ); 
                                     ?>’ Category
                                 </h2>
                             </div><!--my-2-->
