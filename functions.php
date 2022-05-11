@@ -158,4 +158,29 @@ add_action('widgets_init', 'bytebunch_widgets_init');
 // Adding Customizer File.
 require get_template_directory() . '/inc/customizer.php';
 
+function create_custom_post_type() {
+    $args = array(
+        'label' => 'Team',
+        'description' => '',
+        'menu_icon' => 'dashicons-businessman',
+        'menu_position' => 5,
+        'public' => true,
+        'hierarchical' => false,
+        'exclude_from_search' => false,
+        'show_ui' => true,
+        'show_in_menu' => true,
+        'show_in_nav_menus' => true,
+        'show_in_admin_bar' => true,
+        'show_in_rest' => true,
+		'can_export' => true,
+		'has_archive' => true,
+        'supports' => array( 'title', 'editor', 'excerpt', 'thumbnail', 'page-attributes', 'custom-fields' ),
+        'taxonomies' => array(),
+		'capability_type' => 'page',
+    );
+
+    register_post_type( 'team', $args );
+}
+add_action( 'init', 'create_custom_post_type' );
+
 ?>
