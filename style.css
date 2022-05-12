@@ -323,3 +323,29 @@ footer .copyright_text a {
 footer .copyright_text a:hover {
     text-decoration: underline !important;
 }  
+
+/*************** Our Team Css *******************/
+.team {
+    border-radius: 50px 50px 0px 50px;
+    padding: 20px;
+}
+.team:hover {
+    background-color: #e05d28;
+    color: #fff; 
+}
+.team img {
+    float: left;
+    width: 80px;
+    height: 80px;
+    margin: 0px 20px;
+    border-radius: 50% 0 0 0;
+}
+.team .social-links {
+    display: none;
+    background: #fff;
+    margin-top: 10px;
+    padding: 5px;
+}
+.team a:hover {
+    color: #000; 
+}
