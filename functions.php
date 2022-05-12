@@ -174,7 +174,7 @@ function create_custom_post_type() {
         'show_in_rest' => true,
 		'can_export' => true,
 		'has_archive' => true,
-        'supports' => array( 'title', 'editor', 'excerpt', 'thumbnail', 'page-attributes', 'custom-fields' ),
+        'supports' => array( 'title', 'editor', 'excerpt', 'thumbnail' ),
         'taxonomies' => array(),
 		'capability_type' => 'page',
     );
