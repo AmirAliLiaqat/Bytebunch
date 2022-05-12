@@ -21,11 +21,7 @@ get_header();
                     </div><!--my-2-->
                     <div class="my-4 p-3" style="background: #fff;">
                         <?php 
-                            if(the_content() == "") {
-                                echo "<p>There is nothing on this page to show you.</p>";
-                            } else {
-                                the_content(); 
-                            }
+                            the_content();
                         ?>
                     </div><!--my-2-->
                 </div><!--col-md-8-->
