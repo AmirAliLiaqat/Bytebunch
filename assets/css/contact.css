@@ -1,17 +1,9 @@
 /******************** Section css ********************/
-.map{
+.section{
     position: relative;
 }
 .section-row{
     position: absolute;
     top: 12%;
     right: 5%;
-}
-input{
-    width: 100%!important;
-    margin: 10px 0 !important;
-}
-textarea{
-    width: 100%!important;
-    background-color: #f2f2f2;
 }

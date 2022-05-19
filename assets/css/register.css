@@ -1,14 +1,6 @@
 /******************** Section css ********************/
-.section-1, .section-2{
-    background-color: #fff;
-    padding: 15px;
-    margin-bottom: 20px;
-}
 .forum_star {
     color: #f00;
-}
-small {
-    font-size: 85%;
 }
 .row {
     margin-bottom: 20px;
