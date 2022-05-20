@@ -3,8 +3,8 @@ Theme Name: ByteBunch
 Theme URI: https://bytebunch.com/plugin
 Author: ByteBunch
 Author URI: https://bytebunch.com
-Description: ByteBunch is a clan, simple and fully responsive WordPress WooCommerce theme that looks awesome on any device. It adjusts automatically to any screen size including tablets and smartphones as well as Retina displays. Theme is built using HTML5 / CSS3 and is SEO friendly. This WordPress theme was built with travel, adventures, languages and nature in mind but it can be used for anything so be creative and unleash its full potential in blogging, eCommerce, business and other websites. Along the awesome design this theme is customizable via a simple but yet powerful theme options. Some of the nicest features are featured post slider, social icons, custom logo, translation ready (compatible with WPML plugin) and many more. This theme out-of-the-box plays nicely with WooCommerce, Breadcrumb NavXT, WP-PageNavi, Contact Form 7 and other popular plugins. Theme available in English, French, German, Hungarian, Italian, Spanish, Dutch, Hebrew, Slovak, Turkish, Swedish, Brazilian Portuguese, Polish, Finnish, Bulgarian, Persian (Farsi), Greek, Russian and Chinese.
-Tags: white, light, orange, custom-background, custom-header, custom-menu, fluid-layout, featured-images, full-width-template, left sidebar, right sidebar, one-column, two columns, three-columns, rtl-language-support, sticky-post, theme-options, threaded-comments, translation-ready
+Description: ByteBunch is a clan, simple and fully responsive WordPress WooCommerce theme that looks awesome on any device. It adjusts automatically to any screen size including tablets and smartphones as well as Retina displays. Theme is built using HTML5 / CSS3 and is SEO friendly. This WordPress theme was built with travel, adventures, languages and nature in mind but it can be used for anything so be creative and unleash its full potential in blogging, eCommerce, business and other websites. Along the awesome design this theme is customizable via a simple but yet powerful theme options. Some of the nicest features are featuorange post slider, social icons, custom logo, translation ready (compatible with WPML plugin) and many more. This theme out-of-the-box plays nicely with WooCommerce, Breadcrumb NavXT, WP-PageNavi, Contact Form 7 and other popular plugins. Theme available in English, French, German, Hungarian, Italian, Spanish, Dutch, Hebrew, Slovak, Turkish, Swedish, Brazilian Portuguese, Polish, Finnish, Bulgarian, Persian (Farsi), Greek, Russian and Chinese.
+Tags: white, light, orange, custom-background, custom-header, custom-menu, fluid-layout, featuorange-images, full-width-template, left sidebar, right sidebar, one-column, two columns, three-columns, rtl-language-support, sticky-post, theme-options, threaded-comments, translation-ready
 Version: 1.0
 Requires at least: 5.0
 Tested up to: 5.4
@@ -15,6 +15,24 @@ Text Domain: bytebunch
 This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
 */
+
+:root{
+    --white: #fff;
+    --light-white: #f2f2f2;
+    --light-white-bg: #E3E3E3;
+    --black: #000;
+    --light-black: #2a2a2a;
+    --orange: #e55a21;
+    --gray: gray;
+    --light-gray: #ccc;
+    --sky-blue: #43a6df;
+    --footer-bg: #101010;
+    --brown-bg: #333;
+    --brown: #555;
+    --light-brown: #777;
+    --light-brown-bg: #999;
+}
+
 /******************** Typography css ********************/
 #block-12, #block-13, #block-15, #block-16, #block-17{
     display: none;
@@ -29,10 +47,25 @@ Use it to make something cool, have fun, and share what you've learned with othe
     width: 5% !important;
 }
 
+/******************** Message css *******************/
+.message{
+    margin: 10px auto;
+    max-width: 1200px;
+    background-color: var(--light-gray);
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 10px;
+}
+.message span,.message i{
+    font-size: 1rem;
+    color: var(--black);
+    cursor: pointer;
+}
+
 /******************** Header css ********************/
 body{
-    background-color: #f2f2f2 !important;
-    color: #545454;
+    background-color: var(--light-white) !important;
 }
 body a{
     text-decoration: none !important;
@@ -47,23 +80,23 @@ body a{
     display: flex;
 }
 .navbar .container .collapse ul li{
-    border-left: 1px solid #333333;
+    border-left: 1px solid var(--brown-bg);
     padding: 10px;
 }
 .navbar .container .collapse ul li:hover{
-    background-color: #e55a21;
+    background-color: var(--orange);
 }
 .navbar .container .collapse ul li i{
     margin-top: 10px;
-    color: gray;
+    color: var(--gray);
     font-size: 35px;
 }
 .navbar .container .collapse ul li a{
-    color: gray;
+    color: var(--gray);
     font-size: 20px;
 }
 .navbar .container .collapse ul li:hover i, .navbar .container .collapse ul li:hover a{
-    color: #fff;
+    color: var(--white);
 }
 .post-categories{
     margin: 0;
@@ -80,7 +113,7 @@ body a{
 .post-header .time{
     width: 20%;
     height: 100px;
-    border-right: 1px solid #E3E3E3;
+    border-right: 1px solid var(--light-white-bg);
     padding: 15px 2% 0;
 }
 .post-header .title{
@@ -92,42 +125,42 @@ body a{
     font-weight: bold;
 }
 .post-header .title h2 a{
-    color: #000;
+    color: var(--black);
 }
 .post-header .title h2 a:hover{
-    color: #e55a21;
+    color: var(--orange);
 }
 .link{
-    color: #e55a21;
+    color: var(--orange);
     text-decoration: none;
 }
 .link:hover{
-    color: #000;
+    color: var(--black);
 }
 .post-header .months{
     text-transform: uppercase;
 }
 .date{
-    color: #000;
+    color: var(--black);
     font-size: 2.1em;
     line-height: 1em;
 }
 .post-content{
-    border-top: 1px solid #E3E3E3;
+    border-top: 1px solid var(--light-white-bg);
     margin-top: 4px;
     padding-top: 20px;
     padding-right: 20px;
     padding-left: 20px;
 }
 article{
-    background-color: #fff;
+    background-color: var(--white);
     margin-bottom: 30px;
 }
 .orange-btn{
-    background: #e55a21;
+    background: var(--orange);
     text-decoration: none;
     display: inline-block;
-    color: #fff;
+    color: var(--white);
     font-size: 0.86em;
     font-weight: 700;
     padding: 9px 12px;
@@ -135,11 +168,11 @@ article{
     margin-bottom: 20px;
 }
 .orange-btn:hover{
-    background: #000;
-    color: #fff;
+    background: var(--black);
+    color: var(--white);
 }
 .post-footer{
-    border-top: 1px solid #E3E3E3;
+    border-top: 1px solid var(--light-white-bg);
     padding: 10px;
     display: flex;
 }
@@ -147,9 +180,8 @@ article{
     width: 18%;
 }
 .pagination span, .pagination a {
-    background-color: #43a6df;
-    border: 1px solid #dddddd;
-    color: #fff;
+    background-color: var(--sky-blue);
+    color: var(--white);
     float: left;
     line-height: 20px;
     margin-right: 5px;
@@ -157,28 +189,27 @@ article{
     text-decoration: none;
 }
 .pagination span, .pagination a.current{
-    background: #e55a21;
-    color: #fff;
+    background: var(--orange);
+    color: var(--white);
 }
 .pagination a:hover{
-    background: #e55a21;
-    color: #fff;
+    background: var(--orange);
+    color: var(--white);
 }
 .sidebar .widget_block {
-    background-color: #fff;
+    background-color: var(--white);
     margin-bottom: 20px;
     padding: 20px;
 }
 .wp-block-group__inner-container h3{
-    /* color: #686868; */
     font-size: 1em;
     font-weight: 700;
     text-transform: uppercase;
     margin: 0 0 20px 0;
 }
 .wp-block-group__inner-container button {
-    background-color: #e55a21;
-    color: #fff;
+    background-color: var(--orange);
+    color: var(--white);
     cursor: pointer;
     font-weight: 700;
     padding: 8px 32px;
@@ -186,7 +217,7 @@ article{
     border: none;
 }
 .wp-block-group__inner-container button:hover {
-    background-color: #000;
+    background-color: var(--black);
 }
 .wp-block-latest-posts li:first-child {
     border-top: 1px solid rgba(0, 0, 0, 0.1);
@@ -197,17 +228,17 @@ article{
 }
 .wp-block-latest-posts li a {
     text-decoration: none;
-    color: #555555;
+    color: var(--brown);
     display: block;
     font-weight: 700;
     padding: 10px 0;
 }
 .wp-block-latest-posts li a:hover {
-    color: #e55a21;
+    color: var(--orange);
 }
 input[type="submit"] {
-    background-color: #e55a21;
-    color: #fff;
+    background-color: var(--orange);
+    color: var(--white);
     cursor: pointer;
     font-weight: 700;
     padding: 8px 32px;
@@ -215,7 +246,7 @@ input[type="submit"] {
     border: none;
 }
 .tagcloud a {
-    color: #777777;
+    color: var(--light-brown);
     text-decoration: none;
     display: inline-block;
     font-size: 14px !important;
@@ -224,8 +255,8 @@ input[type="submit"] {
     text-transform: uppercase;
 }
 .sidebar .tagcloud a:hover {
-    color: #fff;
-    background-color: #e55a21;
+    color: var(--white);
+    background-color: var(--orange);
 }
 .sidebar .tagcloud a:first-child{
     display: none;
@@ -233,10 +264,10 @@ input[type="submit"] {
 
 /******************** Footer css ********************/
 footer, header{
-    background-color: #101010;
+    background-color: var(--footer-bg);
 }
 footer h3{
-    color: #fff;
+    color: var(--white);
     font-size: 1em;
     font-weight: 700;
     line-height: 22px;
@@ -244,24 +275,24 @@ footer h3{
     text-transform: uppercase;
 }
 .footer-posts li {
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid var(--light-gray);
 }
 .footer-posts li a {
     padding: 5px 0;
-    color: #555555;
+    color: var(--brown);
 }
 .footer-posts li a:hover {
-    color: #555555;
+    color: var(--brown);
     text-decoration: underline !important;
 }
 footer .tags a:first-child, footer .tags a:nth-of-type(2){
     display: none;
 }
 footer .tags a{
-    background-color: #2a2a2a;
+    background-color: var(--light-black);
     font-size: 0.867em !important;
     text-decoration: none;
-    color: #777777;
+    color: var(--light-brown);
     display: block;
     float: left;
     font-size: 0.9em;
@@ -270,29 +301,29 @@ footer .tags a{
     text-transform: uppercase;
 }
 footer .tags a:hover{
-    background-color: #e55a21;
-    color: #fff;
+    background-color: var(--orange);
+    color: var(--white);
 }
 footer p{
-    color: #999;
+    color: var(--light-brown-bg);
     font-size: 0.867em;
     margin-bottom: 10px;
 }
 footer .post ul li span{
     font-weight: 600;
-    color: #999;
+    color: var(--light-brown-bg);
 }
 footer .post ul li a{
     text-decoration: none;
-    color: #777777;
+    color: var(--light-brown);
 }
 footer .post ul li a:hover{
     text-decoration: underline;
 }
 footer input{
-    background: #2a2a2a none repeat scroll 0 0;
-    border: 1px solid #101010;
-    color: #777;
+    background: var(--light-black) none repeat scroll 0 0;
+    border: 1px solid var(--footer-bg);
+    color: var(--light-brown);
     display: block;
     height: 16px;
     margin: 0 0 10px;
@@ -302,7 +333,7 @@ footer input{
     box-sizing: content-box;
 }
 footer .copyright_text {
-    background-color: #000;
+    background-color: var(--black);
     padding: 15px 0;
     margin-top: 20px;
     text-align: center;
@@ -317,7 +348,7 @@ footer .copyright_text ul li {
     margin-right: 10px;
 }
 footer .copyright_text a {
-    color: #fff;
+    color: var(--white);
     text-decoration: none;
 }   
 footer .copyright_text a:hover {
@@ -330,8 +361,8 @@ footer .copyright_text a:hover {
     padding: 20px;
 }
 .team:hover {
-    background-color: #e05d28;
-    color: #fff; 
+    background-color: var(--orange);
+    color: var(--white); 
 }
 .team img {
     float: left;
@@ -342,10 +373,10 @@ footer .copyright_text a:hover {
 }
 .team .social-links {
     display: none;
-    background: #fff;
+    background: var(--white);
     margin-top: 10px;
     padding: 5px;
 }
 .team a:hover {
-    color: #000; 
+    color: var(--black); 
 }
