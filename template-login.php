@@ -7,10 +7,87 @@
 get_header();
 ?>
 <?php
-    if(have_posts()) {
-        while(have_posts()) {
-            the_post();
+
+require_once 'config.php';
+
+if(isset($_POST['login'])) {
+
+    // echo "<script>
+    //     var hideCol = document.getElementsByClassName('login-col').style.display = 'none';
+    //     var showCol = document.getElementsByClassName('verify-col').style.display = 'block !important';
+    // </script>";
+
+    $credentials = array(
+        'user_login'    => $_POST['username'],
+        'user_password' => $_POST['password'],
+        'remember'      => true
+    );
+    
+    $user = wp_signon( $credentials, true );
+
+    if($user) {
+        global $wpdb;
+ 
+        $table_name = $wpdb->prefix . "users";
+        $user_name = $_POST['username'];
+
+        $code = rand(1000,9999);
+        $admin_email = get_option('admin_email');
+        $current_user_id = get_current_user_id();
+
+        $add_activaction_key = "UPDATE $table_name SET `user_activation_key`='$code' WHERE `user_login` = '$user_name'";
+        $add_activaction_key_query = mysqli_query($conn, $add_activaction_key) or die('Query Failed');
+        
+        $get_email = "SELECT `user_email` FROM $table_name WHERE `user_login` = '$user_name'  ";
+        $get_email_query = mysqli_query($conn, $get_email) or die('Query Failed');
+
+        if(mysqli_num_rows($get_email_query) > 0) {
+            while($row = mysqli_fetch_assoc($get_email_query)) {
+                $email = $row['user_email'];
+                $subject = 'Login Verification Code From '. $admin_email;
+                $body = "Name: $user_name \n\n Email: $email \n\n Verification Code: $code";
+
+                wp_mail($email, $subject, $body);
+                $message[] = 'Verification code has been send to your email...';
+            }
+        } else {
+            $message[] = 'Login details are incorrect! Please type correct details to login.';
+        }
+
+    }
+}
+
+if(isset($_POST['verify'])) {
+    global $wpdb;
+
+    $table_name = $wpdb->prefix . "users";
+    $verification_code = $_POST['verfication'];
+
+    $check_code = "SELECT * FROM $table_name WHERE user_activation_key = '$verification_code'";
+    $check_code_query = mysqli_query($conn, $check_code) or die("Query Failed");
+
+    if(!$check_code_query) {
+        $message[] = "Verification code that you entered was wrong! Please try again.";
+    } else {
+        $message[] = "Hurrah! Login Successfully...";
+    }
+}
+
 ?>
+
+<?php
+    if(isset($message)) {
+        foreach ($message as $message) {
+            echo '
+            <div class="message">
+                <span>'.$message.'</span>
+                <i onclick="this.parentElement.remove();">&#10060;</i>
+            </div><!--message-->
+            ';
+        }
+    }
+?>
+
     <!-------------------- Section Start -------------------->
     <section>
         <div class="container my-4">
@@ -20,45 +97,52 @@ get_header();
                 </div><!--col-md-12-->
             </div><!--row-->
             <div class="row mt-4" style="background-color: #fff;">
-                <div class="col-md-6 login-col">
+                <div class="col-md-6 mt-3 login-col">
                     <form action="" method="post">
                         <p>
                             <label for="username">Username:</label> <br>
-                            <input type="text" id="username" required="">
+                            <input type="text" id="username" name="username" required="required">
                         </p>
                         <p>
                             <label for="password">Passowrd:</label> <br>
-                            <input type="password" id="password" required="">
+                            <input type="password" id="password" name="password" required="required">
                         </p>
                         <p>
-                            <input type="checkbox" id="remember_me" checked="">
+                            <input type="checkbox" id="remember_me" name="remember_me" checked="checked">
                             <label for="remember_me">Log me on automatically each visit</label>
                         </p>
                         <p>
                             <a href="http://localhost/wordpress/forgot-password/">Forgot your password?</a>
                         </p>
                         <p>
-                            <input type="submit" value="Log In" class="orange-btn" style="max-width:30%;">
+                            <input type="submit" name="login" class="orange-btn text-uppercase" value="Log In" style="width: 110px;text-align: center;"></input>
                         </p>
                     </form>
-                    <?php //dynamic_sidebar('login-1'); ?>
                 </div><!--col-md-6-->
-                <div class="col-md-6 login-col">
+                <div class="col-md-6 mt-3 verify-col">
+                    <form action="" method="post">
+                        <p>
+                            <label for="verfication">Verification Code:</label> <br>
+                            <input type="text" id="verfication" name="verfication" required="required">
+                        </p>
+                        <p>
+                            <input type="submit" name="verify" class="orange-btn text-uppercase" value="Verify" style="width: 110px;text-align: center;"></input>
+                        </p>
+                    </form>
+                </div><!--col-md-6-->
+                <div class="col-md-12 mt-3">
                     <h2>New User</h2>
                     <p>In order to log in, you must be registered. Registering takes only a few moments but gives you increased capabilities. The board administrator may also grant additional permissions to registered users. Before you register please ensure you are familiar with our terms of use and related policies. Please ensure you read any forum rules as you navigate around the board.</p>
                     <p>
-                        <a href="">Terms of use</a> | <a href="">Privacy policy</a>
+                        <a href="http://localhost/wordpress/terms-of-use/">Terms of use</a> | 
+                        <a href="http://localhost/wordpress/privacy-policy/">Privacy policy</a>
                     </p>
                         <a href="http://localhost/wordpress/register/" class="orange-btn">Create My Account</a>
                     </p>
-                    <?php //dynamic_sidebar('login-2'); ?>
-                </div><!--col-md-6-->
+                </div><!--col-md-12-->
             </div><!--row-->
         </div><!--container-->
     </section>
     <!-------------------- Section End -------------------->
-<?php 
-        }
-    }
-?>
+
 <?php get_footer(); ?>
