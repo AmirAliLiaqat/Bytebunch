@@ -183,4 +183,8 @@ function create_custom_post_type() {
 }
 add_action( 'init', 'create_custom_post_type' );
 
+add_filter('template_redirect', function () {
+    ob_start(null, 0, 0);
+});
+
 ?>
