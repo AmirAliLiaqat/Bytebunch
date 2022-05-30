@@ -40,11 +40,22 @@ Use it to make something cool, have fun, and share what you've learned with othe
 .form-submit .submit{
     max-width: 30%;
 }
-.comment-form-comment label {
+.comment-form-comment label{
     margin-bottom: 10px !important;
 }
 #remember_me{
     width: 5% !important;
+}
+.verify-col{
+    /* display: none; */
+}
+
+.captcha{
+    background: #000;
+    color: #fff;
+    width: 30%;
+    text-align: center;
+    padding: 5px 15px;
 }
 
 /******************** Message css *******************/
@@ -59,7 +70,7 @@ Use it to make something cool, have fun, and share what you've learned with othe
 }
 .message span,.message i{
     font-size: 1rem;
-    color: var(--black);
+    color: green;
     cursor: pointer;
 }
 
@@ -94,6 +105,7 @@ body a{
 .navbar .container .collapse ul li a{
     color: var(--gray);
     font-size: 20px;
+    text-transform: uppercase;
 }
 .navbar .container .collapse ul li:hover i, .navbar .container .collapse ul li:hover a{
     color: var(--white);
