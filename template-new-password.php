@@ -64,6 +64,8 @@ if(isset($_POST['update'])) {
                                     <strong>New Password: </strong>
                                     <span class="forum_star">*</span>
                                 </label><br>
+                                <small>Must be between 6 characters and 100 characters.</small>
+                                </label><br>
                                 <input type="text" name="password" id="password" class="w-50"  required>
                             </p>
                             <p>
