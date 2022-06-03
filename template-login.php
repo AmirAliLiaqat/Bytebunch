@@ -100,7 +100,7 @@ if(isset($_POST['verify'])) {
                         echo '<div class="mt-3">You are logged in with this <span class="text-danger">'.$username.'</span> username. <a href="'.wp_logout_url("http://localhost/wordpress/login/").'">Click here to logout</a></div>';
                     } else {
                 ?>
-                <div class="col-md-6 mt-3 login-col">
+                <div class="col-lg-6 col-md-12 mt-3 login-col">
                     <form action="" method="post">
                         <p>
                             <label for="username">Username:</label> <br>
@@ -122,7 +122,7 @@ if(isset($_POST['verify'])) {
                         </p>
                     </form>
                 </div><!--col-md-6-->
-                <div class="col-md-6 mt-3 verify-col">
+                <div class="col-lg-6 col-md-12 mt-3 verify-col">
                     <form action="" method="post">
                         <p>
                             <input type="hidden" id="username" name="username" value="<?php if(isset($user_name)) {echo $user_name;} ?>">
@@ -136,7 +136,7 @@ if(isset($_POST['verify'])) {
                     </form>
                 </div><!--col-md-6-->
                 <?php } ?>
-                <div class="col-md-6 mt-3">
+                <div class="col-lg-6 col-md-12 mt-3">
                     <h2>New User</h2>
                     <p>In order to log in, you must be registered. Registering takes only a few moments but gives you increased capabilities. The board administrator may also grant additional permissions to registered users. Before you register please ensure you are familiar with our terms of use and related policies. Please ensure you read any forum rules as you navigate around the board.</p>
                     <p>
