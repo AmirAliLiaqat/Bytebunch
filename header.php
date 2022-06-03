@@ -29,7 +29,17 @@
             wp_nav_menu( array (
               'theme_location' => 'primary',
               'container' => ''
-            ) ); 
+            ) );  
+            if ( is_user_logged_in() ) {
+              $current_user = wp_get_current_user();
+              $username = $current_user->user_login;
+              echo "<div class='user-profile'>
+                <span><img src='https://img.icons8.com/glyph-neue/36/undefined/guest-male.png'/><br>$username</span>
+                <div class='profile-options'>
+                  <a href='".wp_logout_url('http://localhost/wordpress/login/')."'>Logout</a>
+                </div>
+              </div>";
+            } 
           ?>
         </div><!--collapse navbar-collapse-->
       </div><!--container-->
