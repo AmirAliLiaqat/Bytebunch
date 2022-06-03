@@ -46,13 +46,44 @@ Use it to make something cool, have fun, and share what you've learned with othe
 #remember_me{
     width: 5% !important;
 }
-.verify-col{
-    /* display: none; */
+/* .verify-col{
+    display: none;
+} */
+.user-profile{
+    border-left: 1px solid var(--brown-bg);
+    background: var(--orange);
+    color: var(--white);
+    height: inherit;
+    padding: 10px 15px;    
+    text-align: center;
+    width: 100px;
+    cursor: pointer;
+    text-transform: uppercase;
 }
+.user-profile span{
+    font-size: 20px;
 
+}
+.profile-options{
+    width: 130px;
+    margin-left: -30px;
+    margin-top: 6%;
+    background: var(--black);
+    padding: 5px;
+    display: none;
+}
+.profile-options a{
+    color: var(--white);
+}
+.profile-options a:hover{
+    color: var(--orange);
+}
+.user-profile:hover .profile-options, .profile-options a{
+    display: block;
+}
 .captcha{
-    background: #000;
-    color: #fff;
+    background: var(--black);
+    color: var(--white);
     width: 30%;
     text-align: center;
     padding: 5px 15px;
