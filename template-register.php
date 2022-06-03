@@ -8,37 +8,34 @@ get_header();
 ?>
 <?php
 
-    // require_once 'config.php';
-
     if(isset($_POST['register'])) {
         $user_login = $_POST['fname'];
         $lname = $_POST['lname'];
-        $pass = $_POST['pass'];
-        $user_pass = wp_hash_password( $pass );
         $user_email = $_POST['email'];
+        $password = $_POST['password'];
         $cpassword = $_POST['cpassword'];
         $captcha = $_POST['captcha'];
-        $email = $_POST['email'];
-
-        // $fname = $_POST['fname'];
-        // $lname = $_POST['lname'];
-        // $pass = $_POST['pass'];
-        // $cpassword = $_POST['cpassword'];
-        // $password = wp_hash_password( $pass );
-        // $email = $_POST['email'];
-
+        $website = "http://localhost/wordpress";
 
         if(strlen($user_login) > 3 && strlen($user_login) < 20 && strlen($lname) > 3 && strlen($lname) < 20) {
-            if(strlen($pass) > 6 && strlen($pass) < 100) {
-                if($pass === $cpassword) {
+            if(strlen($password) > 6 && strlen($password) < 100) {
+                if($password === $cpassword) {
+
                     $emailTo = get_option('admin_email');
                     $login_url = 'http://localhost/wordpress/register?action=register';
                     $subject = 'Registeration Email From ByteBunch';
-                    $body = "Name: $user_login $lname \n\n Email: $email \n\n Login URL: $login_url";
+                    $body = "Name: $user_login $lname \n\n Email: $user_email \n\n Login URL: $login_url";
 
-                    $emailSent = wp_mail($email, $subject, $body);
+                    $emailSent = wp_mail($user_email, $subject, $body);
 
                     if($emailSent) {
+                        $userdata = array(
+                            'user_login' =>  $user_login,
+                            'user_pass'  =>  $password,
+                            'user_email'  =>  $user_email,
+                            'user_url'   =>  $website,
+                        );
+                        $user = wp_insert_user( $userdata ) ;
                         $message[] = 'Registeration email has been send to your email...';
                     }
                 } else {
@@ -50,30 +47,12 @@ get_header();
         } else {
             $message[] = 'Name must be between 3 characters and 20 characters...';
         }
-        
     }
 
     if(isset($_GET['action'])) {
         $action = $_GET['action'];
-
         if($action == 'register') {
-            $register_user_query = register_new_user( $user_login, $user_email );
-
-            // global $wpdb;    
-            // $table_name = $wpdb->prefix . "users";
-
-            // $register_user = "INSERT INTO $table_name (`user_login`, `user_pass`,`user_email`)
-            // VALUES ('$fname','$password','$email')";
-            // $register_user_query = mysqli_query($conn, $register_user) or die("Query Failed");
-
-
-            if($register_user_query) {
-                $message[] = 'User register successfully...';
-            }
-
-            // register_new_user( $user_login, $user_email );
-            // $user_pass = wp_hash_password( $pass );
-            // $user_id = wp_create_user( $user_login, $user_pass, $user_email );
+            $message[] = 'User register successfully...';
         }
     }
 
@@ -147,7 +126,7 @@ get_header();
                                 <small>Must be between 6 characters and 100 characters.</small>
                             </div><!--col-md-4-->
                             <div class="col-md-8">
-                                <input type="password" id="password" name="pass" pattern=".{6, 100}" title="6 Characters 
+                                <input type="password" id="password" name="password" pattern=".{6, 100}" title="6 Characters 
                                 minimum" class="w-50" required="required">
                             </div><!--col-md-8-->
                         </div><!--row-->
