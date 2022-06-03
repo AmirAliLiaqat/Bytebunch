@@ -1,3 +1,13 @@
+/****************** Function for hide message after 3 second *********************/
+setTimeout(() => {
+	const message = document.getElementById('showMessage');
+  
+	// 👇️ removes element from DOM
+	message.style.display = 'none';
+  
+  }, 3000); // 👈️ time in milliseconds
+  
+/****************** Customizer file js code *********************/
 (function( $ ) {
 	"use strict";
 
