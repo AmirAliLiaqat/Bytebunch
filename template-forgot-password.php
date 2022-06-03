@@ -46,7 +46,7 @@ get_header();
     if(isset($message)) {
         foreach ($message as $message) {
             echo '
-            <div class="message">
+            <div class="message" id="showMessage">
                 <span>'.$message.'</span>
                 <i onclick="this.parentElement.remove();">&#10060;</i>
             </div><!--message-->
