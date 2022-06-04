@@ -15,28 +15,34 @@ get_header();
         $password = $_POST['password'];
         $cpassword = $_POST['cpassword'];
         $captcha = $_POST['captcha'];
+        $user_captcha = $_POST['user_captcha'];
         $website = "http://localhost/wordpress";
 
         if(strlen($user_login) > 3 && strlen($user_login) < 20 && strlen($lname) > 3 && strlen($lname) < 20) {
             if(strlen($password) > 6 && strlen($password) < 100) {
                 if($password === $cpassword) {
+                    if($user_captcha === $captcha) {
 
-                    $emailTo = get_option('admin_email');
-                    $login_url = 'http://localhost/wordpress/register?action=register';
-                    $subject = 'Registeration Email From ByteBunch';
-                    $body = "Name: $user_login $lname \n\n Email: $user_email \n\n Login URL: $login_url";
+                        $emailTo = get_option('admin_email');
+                        $login_url = 'http://localhost/wordpress/register?action=register';
+                        $subject = 'Registeration Email From ByteBunch';
+                        $body = "Name: $user_login $lname \n\n Email: $user_email \n\n Login URL: $login_url";
 
-                    $emailSent = wp_mail($user_email, $subject, $body);
+                        $emailSent = wp_mail($user_email, $subject, $body);
 
-                    if($emailSent) {
-                        $userdata = array(
-                            'user_login' =>  $user_login,
-                            'user_pass'  =>  $password,
-                            'user_email'  =>  $user_email,
-                            'user_url'   =>  $website,
-                        );
-                        $user = wp_insert_user( $userdata ) ;
-                        $message[] = 'Registeration email has been send to your email...';
+                        if($emailSent) {
+                            $userdata = array(
+                                'user_login' =>  $user_login,
+                                'user_pass'  =>  $password,
+                                'user_email'  =>  $user_email,
+                                'user_url'   =>  $website,
+                            );
+                            $user = wp_insert_user( $userdata ) ;
+                            $message[] = 'Registeration email has been send to your email...';
+                        }
+                        
+                    } else {
+                        $message[] = 'Wrong Captcha Code!';
                     }
                 } else {
                     $message[] = 'Password does`t match...';
@@ -61,7 +67,7 @@ get_header();
     if(isset($message)) {
         foreach ($message as $message) {
             echo '
-            <div class="message">
+            <div class="message" id="showMessage">
                 <span>'.$message.'</span>
                 <i onclick="this.parentElement.remove();">&#10060;</i>
             </div><!--message-->
@@ -143,11 +149,12 @@ get_header();
                         </div><!--row-->
                         <div class="row">
                             <div class="col-md-4">
-                                <img src="https://test.bytebunch.com/wp-content/themes/bbblog/lib/captcha/contact.php"><br>
+                                <?php require_once 'captcha.php'; echo $captcha; ?>
                                 <small>Type the digits shown in above image into input field.</small>
                             </div><!--col-md-4-->
                             <div class="col-md-8">
-                                <input type="text" id="captcha" name="captcha" class="w-50" autocomplete="off" required="required">
+                                <input type="hidden" id="captcha" name="captcha" class="w-50" value="<?php echo  $captcha_code; ?>">
+                                <input type="text" id="user_captcha" name="user_captcha" class="w-50" required="required">
                             </div><!--col-md-8-->
                         </div><!--row-->
                         <p>
