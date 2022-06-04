@@ -39,8 +39,9 @@ get_header();
                             );
                             $user = wp_insert_user( $userdata ) ;
                             $message[] = 'Registeration email has been send to your email...';
+                        } else {
+                            $message[] = 'Error found for sending mail!';
                         }
-                        
                     } else {
                         $message[] = 'Wrong Captcha Code!';
                     }
