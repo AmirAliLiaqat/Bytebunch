@@ -6,6 +6,12 @@ setTimeout(() => {
 	message.style.display = 'none';
   
   }, 3000); // 👈️ time in milliseconds
+
+/****************** Function for show/hide divs on login button *********************/
+  function showHideItems() {
+	var hideCol = document.getElementById('login-col').style.display = 'none';
+    var showCol = document.getElementById('verify-col').style.display = 'block';
+  }
   
 /****************** Customizer file js code *********************/
 (function( $ ) {
