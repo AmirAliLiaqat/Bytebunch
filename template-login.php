@@ -8,66 +8,7 @@ get_header();
 ?>
 <?php
 
-require_once 'config.php';
 
-if(isset($_POST['login'])) {
-
-    global $wpdb;
-
-    $table_name = $wpdb->prefix . "users";
-    $user_name = $_POST['username'];
-    $user_password = $_POST['password'];
-
-    $code = rand(1000,9999);
-
-    $add_activaction_key = "UPDATE $table_name SET `user_activation_key`='$code' WHERE `user_login` = '$user_name'";
-    $add_activaction_key_query = mysqli_query($conn, $add_activaction_key) or die('Query Failed');
-    
-    $get_email = "SELECT * FROM $table_name WHERE `user_login` = '$user_name' ";
-    $get_email_query = mysqli_query($conn, $get_email) or die('Query Failed');
-
-    if(mysqli_num_rows($get_email_query) > 0) {
-        while($row = mysqli_fetch_assoc($get_email_query)) {
-            $email = $row['user_email'];
-            $admin_email = get_option('admin_email');
-            $subject = 'Login Verification Code From '. $admin_email;
-            $body = "Name: $user_name \n\n Email: $email \n\n Verification Code: $code";
-
-            $mail_send = wp_mail($email, $subject, $body);
-            
-            if($mail_send) {
-                $message[] = 'Verification code has been send to your email...';
-            }
-        }
-    } else {
-        $message[] = 'Login details are incorrect! Please type correct details to login.';
-    }
-}
-
-if(isset($_POST['verify'])) {
-    global $wpdb;
-
-    $table_name = $wpdb->prefix . "users";
-    $verification_code = $_POST['verfication'];
-
-    $check_code = "SELECT * FROM $table_name WHERE user_activation_key = '$verification_code'";
-    $check_code_query = mysqli_query($conn, $check_code) or die("Query Failed");
-
-    if($check_code_query) {
-        $username = $_POST['username'];
-        $password = $_POST['password'];
-        $credentials = array(
-            'user_login'    => $username,
-            'user_password' => $password,
-            'remember'      => true
-        );
-        $user = wp_signon( $credentials, true );
-
-        $message[] = "Hurrah! Login Successfully...";
-    } else {
-        $message[] = "Verification code that you entered was wrong! Please try again.";
-    }
-}
 
 ?>
 
@@ -122,11 +63,9 @@ if(isset($_POST['verify'])) {
                         </p>
                     </form>
                 </div><!--col-md-6-->
-                <div class="col-lg-6 col-md-12 mt-3 verify-col">
+                <div class="col-lg-6 col-md-12 mt-3 verify-col" style="display: none;">
                     <form action="" method="post">
                         <p>
-                            <input type="hidden" id="username" name="username" value="<?php if(isset($user_name)) {echo $user_name;} ?>">
-                            <input type="hidden" id="password" name="password" value="<?php if(isset($user_password)) {echo $user_password;} ?>">
                             <label for="verfication">Verification Code:</label> <br>
                             <input type="text" id="verfication" name="verfication" required="required">
                         </p>
